@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es-MX" ng-app="adminApp" ng-controller="adminCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ppsAdmin</title>
+    <link href="./libs/bootstrap_4_5_0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./libs/sweetalert/sweetalert2.min.css" rel="stylesheet">
+    <link href="./libs/fontawesome_4_7_0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="./css/dashboard.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid" ng-if="!sessionActive">
+        <div class="row justify-content-center align-items-center vh-100">
+            <div class="col-auto" ng-include="partials.login"></div>
+        </div>
+    </div>
+    
+    <div ng-include="partials.dashboard" ng-if="sessionActive"></div>
+
+    <script src="./libs/jquery_3_5_1/jquery-3.5.1.min.js"></script>
+    <script src="./libs/popperjs/popper.min.js"></script>
+    <script src="./libs/bootstrap_4_5_0/js/bootstrap.min.js"></script>
+    <script src="./libs/sweetalert/sweetalert2.min.js"></script>
+    <script src="./libs/rxjs/rxjs.umd.min.js"></script>
+    <script src="./libs/momentjs/moment.min.js"></script>
+    <script src="./libs/momentjs/moment-with-locales.min.js"></script>
+    <script src="./libs/angular_1_8_0/angular.min.js"></script>
+    <script src="./js/adminCtrl.js"></script>
+</body>
+</html>

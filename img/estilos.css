@@ -1,0 +1,85 @@
+body {
+    position: relative;
+}
+
+.bg-orange {
+    background-color: #F49102;
+}
+
+.fuente {
+    Font-family: 'axiforma';
+}
+
+.fuente-bold {
+    Font-family: 'axiformaBold';
+}
+
+.imagen:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+    z-index: 1;
+    background-color: #F52102;
+}
+
+.card-body a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.card-body a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.img-par {
+    width: 200px;
+    height: 100px;
+}
+
+.footercard:hover {
+    animation: bounceIn;
+}
+
+.strokeC {
+    -webkit-text-stroke: 1px black;
+    color: #fff;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.atenuar {
+    -webkit-filter: brightness(60%);
+    filter: brightness(60%);
+}
+
+.agri {
+    background-image: url('img/backAgricolas.jpg');
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    background-color: #F49102;
+}
+
+@font-face {
+    font-family: 'axiforma';
+    src: url('fonts/Axiforma-Regular.woff') format('woff');
+    /*src: url('fonts/ Nombre de la fuente.eot');
+       src: url('fonts/ Nombre de la fuente.eot?#iefix') format('embedded-opentype'),
+            url('fonts/ Nombre de la fuente.woff') format('woff'),
+            url('fonts/ Nombre de la fuente.ttf') format('truetype'),
+            url('fonts/ Nombre de la fuente.svg#adlerRegular') format('svg'); */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'axiformaBold';
+    src: url('fonts/Axiforma-Bold.woff') format('woff');
+    /*src: url('fonts/ Nombre de la fuente.eot');
+       src: url('fonts/ Nombre de la fuente.eot?#iefix') format('embedded-opentype'),
+            url('fonts/ Nombre de la fuente.woff') format('woff'),
+            url('fonts/ Nombre de la fuente.ttf') format('truetype'),
+            url('fonts/ Nombre de la fuente.svg#adlerRegular') format('svg'); */
+    font-weight: normal;
+    font-style: normal;
+}

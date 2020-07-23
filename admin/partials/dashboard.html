@@ -1,0 +1,120 @@
+
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap py-2 px-0 shadow">
+    <span class="navbar-text px-3 text-white h5 m-0">
+        ppsmundimold
+    </span>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+        data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" aria-label="Buscar" ng-model="buscar">
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link sesion" href="" ng-click="logOut()">Cerrar Sesión</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="sidebar-sticky pt-3">
+                <h3 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mb-1 text-muted h5">
+                    <span>Menu</span>
+                    <!-- <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+                        <span data-feather="plus-circle"></span>
+                    </a> -->
+                </h3>
+    
+                <ul class="nav flex-column">
+                    <!-- <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <span data-feather="home"></span>
+                            Dashboard <span class="sr-only">(current)</span>
+                        </a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="">
+                            <i class="fa fa-briefcase"></i>
+                            Casos
+                        </a>
+                    </li>
+                </ul>
+    
+                
+                <!-- <ul class="nav flex-column mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="file-text"></span>
+                            Current month
+                        </a>
+                    </li>
+                </ul>  -->
+            </div>
+        </nav>
+    
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Casos</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" ng-click="caseCUModal()">Nuevo</button>
+                    </div>
+                    <div class="btn-group mr-2">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" ng-click="refreshTable()">Actualizar</button>
+                    </div>
+                    <div class="btn-group mr-2">
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ordfields.ord}}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="" ng-repeat="field in ordfields.fields" ng-click="ordena(field.value)">{{field.label}}</a>
+                        </div>
+                        <button class="btn btn-sm btn-outline-secondary" ng-if="ordfields.reverse" ng-click="ordfields.reverse = false">
+                            <span class="fa fa-sort-amount-desc"></span>
+                        </button>
+                        <button class="btn btn-sm btn-outline-secondary" ng-if="!ordfields.reverse">
+                            <span class="fa fa-sort-amount-asc" ng-click="ordfields.reverse = true"></span>
+                        </button>
+                        
+                    </div>
+                    <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                        <span data-feather="calendar"></span>
+                        This week
+                    </button> -->
+                </div>
+            </div>
+    
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>Posición</th>
+                            <th>Título</th>
+                            <th>Imagen</th>
+                            <th>Descripción</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody ng-if="cases.length > 0">
+                        <tr ng-repeat="case in cases | filter:buscar | orderBy:ordfields.ord:ordfields.reverse ">
+                            <td>{{case.Posicion}}</td>
+                            <td>{{case.Titulo}}</td>
+                            <td><span class="badge badge-pill badge-info" ng-click="imgShow(case.Nombre,case.URL)" style="cursor: pointer;"><i class="fas fa-file-image"></i> {{case.Nombre}}</span></td>
+                            <td class="d-inline-block text-truncate text-break" style="max-width: 400px;">{{case.Descripcion}}</td>
+                            <td class="text-right">
+                                <i class="btn btn-info btn-sm fa fa-pencil mx-1" style="cursor: pointer;" ng-click="caseCUModal(true, case)"></i> 
+                                <i class="btn btn-danger btn-sm fa fa-trash-o mx-1" style="cursor: pointer;" ng-click="rmCase(case)"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    
+        <div ng-include="partials.modalCaso"></div>
+        <div ng-include="partials.modalImg"></div>
+    </div>
+</div>
+

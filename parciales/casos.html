@@ -1,0 +1,54 @@
+<div class=" pt-5">&nbsp;
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="bd-callout">
+            <h1 class="text-light"> Casos de éxito</h1>
+        </div>
+    </div>
+</div>
+<div class="row mt-3 justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4" ng-repeat="case in cases">
+        <div class="card mb-3" style="height: {{tamanioCard}}px;">
+            <div class="row vh-100">
+                <div class="col-12 align-self-center">
+                    <img ng-src="{{case.URL}}" class="card-img-top img-fluid p-2" style="max-height: {{tamaniodMax}}px;"
+                        alt="...">
+                </div>
+                <div class="col-12 d-flex align-items-end">
+                    <div class="card-body text-wrap d-inline-block text-truncate text-justify text-break">
+                        <h5 class="card-title">{{case.Titulo}}</h5>
+                        <p class="card-text">{{case.DescShort}} <a href="" class="text-primary"
+                                ng-if="case.Descripcion.length > case.DescShort.length" ng-click="openModal(case)">ver más</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modalCaso">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{caso.Titulo}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row p-3">
+                    <div class="col-12 text-center">
+                        <img ng-src="{{caso.URL}}" class="img-fluid" style=" max-height: 300px" alt="...">
+                    </div>
+                    <div class="col-12 my-3">
+                        <p ng-repeat="parrafo in caso.DescripcionTemp track by $index" class="text-justify">{{parrafo}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

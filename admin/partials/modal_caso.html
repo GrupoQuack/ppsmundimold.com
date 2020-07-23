@@ -1,0 +1,48 @@
+<div class="modal fade" id="modalCaso" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel" ng-if="!edit">Nuevo Caso</h5>
+                <h5 class="modal-title" id="staticBackdropLabel" ng-if="edit">Editar Caso</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <form enctype="multipart/form-data" ng-submit="caseCU(edit)">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="titulo">Título</label>
+                        <input type="text" class="form-control" id="titulo" placeholder="Ingrese el Título" ng-model="case.Titulo" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del archivo" ng-model="case.Nombre" ng-required="!edit" ng-readonly="edit" autocomplete="off" ng-paste="noPaste($event)" ng-keypress="onlyLetters($event)" />
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="imagen" name="imagen" ng-required="!edit" />
+                        <label class="custom-file-label" for="imagen" ng-if="case.fileName == null" data-browse="Buscar">Seleccionar
+              Archivo</label>
+                        <label class="custom-file-label" for="imagen" ng-if="case.fileName != null" data-browse="Buscar">{{case.fileName}}</label>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="titulo">Descripción</label>
+                        <textarea class="form-control" id="descripcion" ng-model="case.Descripcion" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Posición</label>
+                        <input type="text" class="form-control" id="posicion" placeholder="Ingrese el número de posición" ng-model="case.Posicion" ng-required="true" autocomplete="off" ng-paste="noPaste($event)" ng-keypress="onlyNumbers($event)" />
+                    </div>
+                    <div class="form-group form-check mt-3">
+                        <input type="checkbox" class="form-check-input" id="visible" name="visible" ng-model="case.Visible" />
+                        <label class="form-check-label" for="visible">Visible</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="clearFields()">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" ng-if="!edit">Crear</button>
+                    <button type="submit" class="btn btn-primary" ng-if="edit">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

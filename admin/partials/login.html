@@ -1,0 +1,11 @@
+<form class="form-signin" ng-submit="logIn()">
+    <div class="text-center px-4 mb-3">
+        <img class="mb-4 img-fluid" src="/admin/img/logo.fw.png" alt="">
+    </div>
+
+    <label for="inputEmail" class="sr-only">Usuario</label>
+    <input type="text" id="username" class="form-control" placeholder="Usuario" ng-model="user.username" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="password" class="form-control" placeholder="Password" ng-model="user.password"  required>
+    <button class="btn btn-lg btn-primary btn-block mt-5" type="submit">Ingresar</button>
+</form>
